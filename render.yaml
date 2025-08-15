@@ -1,0 +1,17 @@
+services:
+  - type: worker
+    name: securebotplus
+    runtime: python
+    plan: free
+    region: singapore   # 近場でレイテンシ低め（好みで変更可）
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python secure_bot_plus.py"
+    envVars:
+      - key: TOKEN
+        sync: false         # Renderダッシュボードで後から入れます
+      - key: DATA_DIR
+        value: /data        # ← さっきコードで参照した保存先
+    disk:
+      name: bot-data
+      mountPath: /data
+      sizeGB: 1
