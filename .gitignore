@@ -1,5 +1,0 @@
-__pycache__/
-.env
-*.bak_*
-*.log
-security_conf.json
